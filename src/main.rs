@@ -15,8 +15,7 @@ fn print_usage(program: &str, opts: Options) {
     print!("{}", opts.usage(&brief));
 }
 
-fn main() {
-    let args: Vec<String> = env::args().collect();
+fn parse_command_line(args: Vec<String>) {
     let program = args[0].clone();
 
     let threshold = 1024;
@@ -39,6 +38,7 @@ fn main() {
         Ok(m) => { m }
         Err(f) => { panic!(f.to_string()) }
     };
+
     println!("verbosity: {}", matches.opt_count("v"));
     if matches.opt_present("h") {
         print_usage(&program, opts);
@@ -54,4 +54,10 @@ fn main() {
     };
     do_work(&input, output);
     */
+}
+
+fn main() {
+    let args: Vec<String> = env::args().collect();
+
+    parse_command_line(args);
 }
