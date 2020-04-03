@@ -8,3 +8,4 @@ edition = "2018"
 
 [dependencies]
 getopts = "0.2.21"          # getopts-like option parsing. 
+walkdir = "2.3.1"           # Recursively walk a directory.
